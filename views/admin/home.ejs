@@ -1,0 +1,103 @@
+<%- include('../layout/header.ejs') %>
+  <header style="background-image: url('https://i.pinimg.com/originals/37/0c/1f/370c1f3435059c818d8c2313d65c651c.gif');">
+    <!-- Navbar -->
+    <!-- Image and text -->
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin/home">
+          <img class="rounded-circle shadow-4-strong" alt="avatar2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRagKwwAKFcJWQ3uW0DAx2R8WZ5sVmW2XPpVA&usqp=CAU"
+            height="40" />
+          <small class="fw-bolder mx-5" style="color: rgb(191, 178, 178)">
+            Admin Panel
+          </small>
+
+          <div class="mx-5">
+            <a class="btn text-white" style="background-color: #c61118;" href="/admin/logout" role="button">
+              logout
+            </a>
+          </div>
+
+        </a>
+      </div>
+    </nav>
+
+
+
+    <!-- Navbar -->
+
+
+
+
+
+
+  <nav class="container mt-5 navbar navbar-dark bg-secondary">
+    <div class="container-fluid">
+      <form class="d-flex input-group w-auto" action="">
+        <input type="search" class="form-control rounded" placeholder="Search" name="search">
+        <button class="btn btn-primary btn-rounded mx-1 " style="background-color: #481449;" href="#!" type="submit">
+          <i class="bi bi-binoculars-fill"></i>
+        </button>
+      </form>
+      <div class="m-3">
+        <a href="/admin/add-user" class="btn btn- text-white" style="background-color: #481449;">Add New User</a>
+      </div>
+    </div>
+  </nav>
+
+  <table class="container table align-items-center mb-0 table-dark table-striped mt-2">
+    <thead class="bg-light">
+      <tr>
+        <th class="bg-light text-dark px-4">Index</th>
+        <th class="bg-light text-dark px-4">Name</th>
+        <th class="bg-light text-dark">Email</th>
+        <th class="bg-light text-dark">Phone Number</th>
+        <th class="bg-light text-dark">Action</th>
+      </tr>
+
+    </thead>
+
+    <tbody class="">
+      <% if(users.length> 0){
+        for(let i=0;i<users.length;i++){ %>
+          <tr>
+            <td>
+              <p class="fw-bold mb-1 text-white px-4  1  d-flex  ">
+                <%=[i+1] %>
+              </p>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class="fw-bold mb-1 text-white ">
+                    <%= users[i].name %>
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1 text-white">
+                <%= users[i].email %>
+              </p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1 text-white">
+                <%= users[i].mobile %>
+              </p>
+            </td>
+            <td>
+              <a href="/admin/edit?id=<%= users[i]._id %>" class="btn btn-info mx-2"><i
+                  class="bi bi-pencil-square"></i></a>
+              <a href="/admin/delete?id=<%= users[i]._id %>" class="btn btn-danger"><i class="bi bi-person-x"></i></a>
+            </td>
+            <% } } else{ %>
+          <tr>
+            <td colspan="5">Users Not Found</td>
+          </tr>
+          <% } %>
+            </tr>
+    </tbody>
+  </table>
+
+</header>
+  <%- include('../layout/footer.ejs') %>

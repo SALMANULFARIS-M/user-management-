@@ -1,0 +1,64 @@
+<%- include('../layout/header.ejs') %>
+
+  <header>
+    <!-- Navbar -->
+    <!-- Image and text -->
+    <nav class="navbar navbar-light  bg-dark bg-gradient">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://i.pinimg.com/originals/11/df/2b/11df2bc889722dab6946142dc9c70151.gif"
+            class="rounded-circle shadow-4-strong mx-5" alt="avatar2" height="30" alt="MDB Logo" loading="lazy" />
+
+          <small class="fw-bolder" style="color: rgb(245, 238, 238)">
+            <% if(user){ %>
+              <%= user.name%>
+                <% } else {%>
+                  HOME
+                  <% } %>
+          </small>
+
+
+
+        </a>
+
+
+        <% if(user){ %>
+          <div class="mx-5">
+            <a class="btn text-white" style="background-color: #c61118;" href="/logout" role="button">
+              logout
+            </a>
+          </div>
+          <% } else {%>
+            <div class="mx-5">
+              <a class="btn text-white" style="background-color: #c61118;" href="/login" role="button">
+                login
+              </a>
+            </div>
+            <% } %>
+
+      </div>
+    </nav>
+
+
+
+    <!-- Navbar -->
+
+    <!-- Background image -->
+    <div>
+
+      <% if(user){ %>
+        <img src="https://i.pinimg.com/originals/33/cf/e3/33cfe334e5896af4951a17bfceda0887.gif" alt="" srcset=""
+        class="bg-image img-fluid" style="width: 100%;">
+        
+        <% } else {%>
+          
+            <img src="https://i.pinimg.com/originals/c2/d8/7a/c2d87abae140a6a133c6a75b815be4b6.gif" alt="" srcset=""
+          class="bg-image img-fluid" style="width: 100%;">
+          <% } %>
+
+    </div>
+    <!-- Background image -->
+  </header>
+
+
+  <%- include('../layout/footer.ejs') %>
